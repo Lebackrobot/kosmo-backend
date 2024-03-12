@@ -3,11 +3,11 @@
  * @returns { Promise<void> }
  */
 export const up = function(knex) {
-    return knex.schema.createTable('users', (table) => {
+    return knex.schema.createTable('products', (table) => {
         table.increments('id').primary()
         table.string('name').notNullable()
-        table.string('email').notNullable().unique()
-        table.string('password').notNullable()
+        table.float('price').notNullable()
+        table.integer('stock').notNullable()
         table.datetime('created_at').notNullable().defaultTo(knex.fn.now())
         table.datetime('updated_at')
     })
@@ -18,5 +18,5 @@ export const up = function(knex) {
  * @returns { Promise<void> }
  */
 export const down = function(knex) {
-  return knex.schema.dropTable('users')
+  return knex.schema.dropTable('products')
 };
