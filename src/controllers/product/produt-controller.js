@@ -1,5 +1,4 @@
-import { createProductModel, productModel } from '../../models/product/product-model.js'
-import productService from './../../services/service/product-service.js'
+import productService from '../../services/product/product-service.js'
 
 export default {
     getById: async (require, response) => {

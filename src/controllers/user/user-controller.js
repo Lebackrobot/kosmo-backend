@@ -19,7 +19,7 @@ export default {
             const user = await userService.getById(require.params.id)
 
             if (!user) {
-                return response.status(404).send({ success: false, message: 'User is not found'})
+                return response.status(404).send({ success: false, message: 'User is not found' })
             }
         
 
