@@ -1,9 +1,11 @@
+import jwt from 'jsonwebtoken'
 import userService from '../../services/user/user-service.js'
 import passwordCrypto from '../../utils/password-crypto.js'
 
 export default {
     signin: async (require, response) => {
         try {
+            const secretKey = process.env.JWT_SECRET_KEY
             const { email, password } = require.body
 
             if (!email || !password) {
@@ -20,7 +22,10 @@ export default {
                 return response.status(401).send({ success: false, message: 'Unauthorized' })
             }
 
-            return response.status(200).send({ success: true, data: user, message: 'Success to signin'})            
+
+            // Retornar o auth token
+            const token = jwt.sign({ userId: user.id }, secretKey,{expiresIn: '3h'} )
+            return response.status(200).send({ success: true, data: { token }, message: 'Success to signin'})            
         }
 
         catch (err) {
