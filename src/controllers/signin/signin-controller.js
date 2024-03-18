@@ -23,7 +23,6 @@ export default {
             }
 
 
-            // Retornar o auth token
             const token = jwt.sign({ userId: user.id }, secretKey,{expiresIn: '3h'} )
             return response.status(200).send({ success: true, data: { token }, message: 'Success to signin'})            
         }
