@@ -27,7 +27,7 @@ Os endpoints podem ser importados no `insomnia` com o json em:
 `📁 ./test/insomnia/endpoins.json`
 
 
-⚠️ Obs: Lembre-se que testar os endpoins, cadastrar um user em  /signup e pegar o jwt token em /signin. Esse token será necessário para vocẽ utilizar no header das rotas em auth. Para isso basta setar o authorization no token
+⚠️ Obs: Lembre-se que testar os endpoins, castrando um user em  `/signup` e pegar o jwt token em `/signin`. Esse token será necessário para vocẽ utilizar no header das rotas em auth. Para isso basta setar o authorization no header
 
 ```
 headers: {Authorization: `token`}
