@@ -20,7 +20,23 @@ npm install && npm start
 
 
 ## Endpoints
-Foram desenvolvidos os endpoins com rotas autenticadas (auth) e não autenticadas (noauth)
+Foram desenvolvidos os endpoins com rotas autenticadas (auth) e não autenticadas (noauth).
+Os endpoints podem ser importados no `insomnia` com o json em: 
+
+
+`📁 ./test/insomnia/endpoins.json`
+
+
+⚠️ Obs: Lembre-se que testar os endpoins, cadastrar um user em  /signup e pegar o jwt token em /signin. Esse token será necessário para vocẽ utilizar no header das rotas em auth. Para isso basta setar o authorization no token
+
+```
+headers: {Authorization: `token`}
+```
+
+![image](https://github.com/Lebackrobot/kosmo-backend/assets/49316490/b7dfa60e-ff65-454b-a638-f8f8b83d3f5b)
+
+<br>
+
 
 #### Rotas não autenticadas (noauth)
 Method |  EndPoint | Body Params | Headers |Returns
