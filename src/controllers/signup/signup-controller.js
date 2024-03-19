@@ -35,7 +35,7 @@ export default {
                 hashedPassword
             ))
 
-            return response.status(200).send({ success: true, message: 'Success to create user'})
+            return response.status(201).send({ success: true, message: 'Success to create user'})
             
         }
 

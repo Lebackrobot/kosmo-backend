@@ -15,7 +15,7 @@ export default {
             const user = await userService.getByEmail(email)
 
             if(!user) {
-                return response.status(404).send({ sucess: false, message: 'User not found '})
+                return response.status(404).send({ sucess: false, message: 'User not found'})
             }
 
             if (!passwordCrypto.verifyPassword(password, user.password)) {
