@@ -29,11 +29,15 @@ export default {
         }
     },
 
+
     updateCartProductByCartId: async (require, response) => {
         try {
             const { cartId } = require.params
 
             const { productId, quantity } = require.body
+
+
+
 
             if (!productId) {
                 return response.status(400).send({ success: false, message: 'product id is required' })
@@ -45,6 +49,7 @@ export default {
 
             
             const product = await cartService.getProductByCartIdAndProductId(cartId, productId)
+
             
             if (!product) {
                 return response.status(404).send({ success: false, message: 'Product not found'})
@@ -70,6 +75,26 @@ export default {
 
 
         }
+
+        catch (err) {
+            return response.status(500).send({ success: false, message: `Internal server error ${err}` })
+        }
+    },
+
+    emptyCart: async (require, response) => {
+        try {
+            const { id: userId} = require.user
+            const products = await cartService.getCartProductsByUserId(userId)
+            const { id: cartId} = await cartService.getCartByUserId(userId)
+
+            // Remove all products
+            products.forEach(product => {
+                cartService.deleteProductByCartIdAndProductId(cartId, product.id)
+            })
+
+            return response.status(200).send({ success: true, message: 'Cart is empty'})
+        }
+
 
         catch (err) {
             return response.status(500).send({ success: false, message: `Internal server error ${err}` })
