@@ -35,11 +35,14 @@ Method |  EndPoint | Body Params | Headers |Returns
 :---------: | :------ | :-------: | :--------: | :--------:
 <strong>POST</strong>| /auth/carts |  {productId, quantity}  | Authorization: `token` | `cartModel`
 <strong>PUT</strong>| /auth/carts/:cartId |  - | Authorization: `token` | `cartModel`
-<strong>DELETE</strong>| /auth/carts/cartId |  - | Authorization: `token` | { success, message }
+<strong>DELETE</strong>| /auth/carts/:productId |  - | Authorization: `token` | { success, message }
+<strong>DELETE</strong>| /auth/carts |  - | Authorization: `token` | { success, message }
 <strong>GET</strong>| /auth/carts |  - | Authorization: `token` | `cartModel`
 <strong>POST</strong>| /auth/sales |  - | Authorization: `token` | `salesModel`
 
 
 
 ## Database
+Para facilidar as querys e validações de stock, foi criado o seguindo ER
+
 ![Screenshot from 2024-03-19 06-24-07](https://github.com/Lebackrobot/kosmo-backend/assets/49316490/24ffeba9-f576-4524-8a39-c23e3bbbf06b)
