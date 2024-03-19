@@ -25,15 +25,19 @@ Foram desenvolvidos os endpoins com rotas autenticadas (auth) e não autenticada
 #### Rotas não autenticadas (noauth)
 Method |  EndPoint | Body Params | Headers |Returns
 :---------: | :------ | :-------: | :--------: | :--------:
-<strong>POST</strong>| /noauth/signin |  - | {name, email, password}  | { success, message }
-<strong>POST</strong>| /noauth/signin |  - | {email, password}  | { success: , data: { token }, message} 
+<strong>POST</strong>| /noauth/signin |  {name, email, password} | -  | { success, message }
+<strong>POST</strong>| /noauth/signin |  {email, password} | -  | { success: , data: { `token` }, message} 
 
+<br>
 
 #### Rotas autenticadas (auth)
 Method |  EndPoint | Body Params | Headers |Returns
 :---------: | :------ | :-------: | :--------: | :--------:
-<strong>POST</strong>| /noauth/signin |  - | {name, email, password}  | { success, message }
-<strong>POST</strong>| /noauth/signin |  - | {email, password}  | { success: , data: { token }, message} 
+<strong>POST</strong>| /auth/carts |  {productId, quantity}  | Authorization: `token` | `cartModel`
+<strong>PUT</strong>| /auth/carts/:cartId |  - | Authorization: `token` | `cartModel`
+<strong>DELETE</strong>| /auth/carts/cartId |  - | Authorization: `token` | { success, message }
+<strong>GET</strong>| /auth/carts |  - | Authorization: `token` | `cartModel`
+<strong>POST</strong>| /auth/sales |  - | Authorization: `token` | `salesModel`
 
 
 
