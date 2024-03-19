@@ -108,5 +108,19 @@ export default {
                 return resolve(response)
             })
         })
+    },
+
+    createCartByUserId: async (userId) => {
+        return await new Promise((resolve, reject) => {
+            dbConnection.query(
+                `INSERT INTO carts (user_id) VALUES (?)`
+                , [userId], (err, response) => {
+                if (err) {
+                    return reject(err)
+                }
+
+                return resolve(response)
+            })
+        })
     }
 }

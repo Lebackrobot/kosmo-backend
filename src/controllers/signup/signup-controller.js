@@ -1,3 +1,4 @@
+import cartService from '../../services/cart/cart-service.js'
 import userService from '../../services/user/user-service.js'
 
 import passwordCryto  from '../../utils/password-crypto.js'
@@ -35,7 +36,12 @@ export default {
                 hashedPassword
             ))
 
-            return response.status(201).send({ success: true, message: 'Success to create user'})
+            // Create cart 
+            const { id: userId } = await userService.getByEmail(payload.email) 
+
+            cartService.createCartByUserId(userId)
+
+            return response.status(201).send({ success: true, data: user, message: 'Success to create user'})
             
         }
 
